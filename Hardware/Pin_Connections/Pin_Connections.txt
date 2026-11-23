@@ -1,0 +1,101 @@
+============================================================
+       ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+============================================================
+
+                 PIN CONNECTION DETAILS
+                  PROTEUS SIMULATION
+
+------------------------------------------------------------
+CONTROLLER INFORMATION
+------------------------------------------------------------
+
+Simulation Microcontroller : LPC2138
+Firmware Target             : LPC2148
+Simulation Software         : Proteus ISIS
+
+
+------------------------------------------------------------
+1. EXTERNAL INTERRUPT
+------------------------------------------------------------
+
+Peripheral       : Push Button
+Microcontroller  : P0.1
+Function         : EINT0 Input
+
+
+------------------------------------------------------------
+2. STREETLIGHT OUTPUT
+------------------------------------------------------------
+
+Peripheral       : Red LED (D1)
+Microcontroller  : P0.7
+Function         : Digital Output
+
+
+------------------------------------------------------------
+3. LDR SENSOR
+------------------------------------------------------------
+
+Peripheral       : Light Dependent Resistor (LDR1)
+Microcontroller  : P0.28
+ADC Channel      : AD0.1
+Function         : Analog Input
+
+
+------------------------------------------------------------
+4. LCD DISPLAY (LM016L - 16x2)
+------------------------------------------------------------
+
+LCD Signal       Microcontroller Pin
+--------------------------------------
+Data Lines       P0.8  - P0.15
+Register Select  P0.16
+Read/Write       P0.17
+Enable           P0.18
+
+
+------------------------------------------------------------
+5. 4x4 MATRIX KEYPAD
+------------------------------------------------------------
+
+Keypad Signal    Microcontroller Pin
+--------------------------------------
+Row 1            P1.16
+Row 2            P1.17
+Row 3            P1.18
+Row 4            P1.19
+
+Column 1         P1.20
+Column 2         P1.21
+Column 3         P1.22
+Column 4         P1.23
+
+
+------------------------------------------------------------
+6. CLOCK CONFIGURATION
+------------------------------------------------------------
+
+Main Crystal    : 12 MHz
+RTC Crystal     : 32.768 kHz
+
+
+------------------------------------------------------------
+IMPORTANT NOTES
+------------------------------------------------------------
+
+1. LPC2138 is used as the controller in the Proteus simulation.
+
+2. LPC2148 is the target microcontroller for the embedded
+   firmware.
+
+3. The pin connections listed above are transcribed from
+   the supplied Proteus circuit diagram.
+
+4. Verify the physical LPC2148 development-kit connections
+   separately before using this document as the actual
+   hardware wiring reference.
+
+
+============================================================
+                    END OF DOCUMENT
+============================================================

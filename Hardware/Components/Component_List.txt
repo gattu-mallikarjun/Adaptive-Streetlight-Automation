@@ -1,0 +1,26 @@
+Adaptive Streetlight Automation System
+Hardware Component List
+
+1. Microcontroller
+- LPC2138 – Used as the microcontroller in the Proteus simulation.
+- LPC2148 – Actual microcontroller targeted by the embedded firmware.
+
+2. Display
+- LCD LM016L (16×2) – Displays RTC information and system status.
+
+3. Input Devices
+- 4×4 Matrix Keypad – Used for user input and RTC menu operations.
+- LDR (Light Dependent Resistor) – Detects ambient light intensity.
+
+4. Output Devices
+- Red LED – Represents the streetlight output in the simulation.
+
+5. Clock Components
+- 12 MHz Crystal – Main microcontroller clock source.
+- 32.768 kHz Crystal – RTC clock source.
+
+6. Other Components
+- Resistors – Used in the circuit for pull-up and current-limiting functions.
+- Push Button – Used to trigger the external interrupt input.
+
+Note:LPC2138 is used only for Proteus simulation. The firmware is developed for LPC2148. The actual hardware component list and connections should be verified against the physical development kit.
