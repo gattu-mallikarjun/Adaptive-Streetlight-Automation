@@ -20,7 +20,7 @@ Listings/
 # Keil user-specific settings
 *.uvopt
 *.uvoptx
-*.uvguix.*
+*.uvgui*
 
 # Backup files
 *.bak
