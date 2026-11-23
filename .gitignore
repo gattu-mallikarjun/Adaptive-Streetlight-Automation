@@ -1,0 +1,38 @@
+
+# Keil generated object and dependency files
+*.o
+*.d
+*.crf
+
+# Keil generated build outputs
+*.axf
+*.hex
+*.map
+*.lnp
+*.sct
+*.lst
+*.build_log.htm
+
+# Keil generated folders
+Objects/
+Listings/
+
+# Keil user-specific settings
+*.uvopt
+*.uvoptx
+*.uvguix.*
+
+# Backup files
+*.bak
+*.old
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# Additional Keil generated files
+*.htm
+*.dep
