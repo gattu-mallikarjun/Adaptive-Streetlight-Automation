@@ -36,3 +36,4 @@ desktop.ini
 # Additional Keil generated files
 *.htm
 *.dep
+!Simulation/MINI_PROJECT.hex

@@ -1,0 +1,66 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+PROTEUS SIMULATION DETAILS
+
+1. SIMULATION ENVIRONMENT
+
+- Simulation Software: Proteus ISIS
+- Simulation Controller: LPC2138
+- Firmware Target Controller: LPC2148
+- Firmware Development Environment: Keil µVision
+- Firmware File: MINI_PROJECT.hex
+
+
+2. SIMULATION FILES
+
+- Adaptive_Streetlight_Simulation.DSN – Proteus circuit schematic.
+- MINI_PROJECT.hex – Compiled firmware used by the simulation.
+- Screenshots – Circuit diagram and simulation output evidence.
+
+
+3. SIMULATION COMPONENTS
+
+- LPC2138 microcontroller
+- 16x2 LCD
+- LDR sensor
+- Red LED
+- 4x4 matrix keypad
+- Push button for external interrupt
+- Main crystal and RTC crystal
+
+
+4. SYSTEM FUNCTIONALITY
+
+- The RTC information is displayed on the LCD.
+- The external interrupt is used to access the RTC menu.
+- The system checks the configured time window.
+- During the active time window, the LDR is used to monitor ambient light.
+- The streetlight LED is controlled according to the detected light intensity.
+- Outside the configured time window, the streetlight LED remains OFF.
+
+
+5. SIMULATION EVIDENCE
+
+The Screenshots folder contains:
+
+1. Complete circuit diagram.
+2. Running simulation with LCD output.
+3. Zoomed circuit diagram.
+
+
+6. CONTROLLER NOTE
+
+LPC2138 is used in the Proteus simulation because LPC2148 is unavailable in the Proteus component library. The embedded firmware is developed for LPC2148.
+
+NOTE: The simulation circuit connections should not be treated as verified physical LPC2148 development-board wiring.
+
+
+7. IMPORTANT SIMULATION AND HARDWARE NOTES
+
+1. Delay Calibration:
+The delay timings used in the Proteus simulation may differ from the actual LPC2148 hardware because of differences in clock configuration and execution timing. Verify and calibrate the delay values on the real development board.
+
+2. Keypad Number Mapping:
+The keypad number arrangement in the Proteus simulation may differ from the actual keypad layout. In particular, the simulated keypad displays 7, 8, 9 in the first numeric row, whereas the expected actual keypad layout may display 1, 2, 3. Verify the actual keypad layout and adjust the firmware mapping if required.
+
+3. Hardware Verification:
+Verify all peripheral connections, timing, keypad operations, LCD behavior, ADC readings, and RTC functionality on the actual LPC2148 development board before considering the system fully validated on hardware.

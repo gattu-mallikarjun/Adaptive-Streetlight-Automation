@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_proj.xsd">
 
   <SchemaVersion>1.1</SchemaVersion>
@@ -413,67 +413,67 @@
             <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\adc.c</FilePath>
+              <FilePath>..\Source\ADC\adc.c</FilePath>
             </File>
             <File>
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\delay.c</FilePath>
+              <FilePath>..\Source\Delay\delay.c</FilePath>
             </File>
             <File>
               <FileName>eint0_irq.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\eint0_irq.c</FilePath>
+              <FilePath>..\Source\Interrupt\eint0_irq.c</FilePath>
             </File>
             <File>
               <FileName>kpm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\kpm.c</FilePath>
+              <FilePath>..\Source\Keypad\kpm.c</FilePath>
             </File>
             <File>
               <FileName>lcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\lcd.c</FilePath>
+              <FilePath>..\Source\LCD\lcd.c</FilePath>
             </File>
             <File>
               <FileName>lcd_startup.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\lcd_startup.c</FilePath>
+              <FilePath>..\Source\LCD\lcd_startup.c</FilePath>
             </File>
             <File>
               <FileName>ldr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\ldr.c</FilePath>
+              <FilePath>..\Source\LDR\ldr.c</FilePath>
             </File>
             <File>
               <FileName>led_symbol.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\led_symbol.c</FilePath>
+              <FilePath>..\Source\GPIO\led_symbol.c</FilePath>
             </File>
             <File>
               <FileName>pin_connect_block.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\pin_connect_block.c</FilePath>
+              <FilePath>..\Source\Pin_Configuration\pin_connect_block.c</FilePath>
             </File>
             <File>
               <FileName>rtc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\rtc.c</FilePath>
+              <FilePath>..\Source\RTC\rtc.c</FilePath>
             </File>
             <File>
               <FileName>rtc_menu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\rtc_menu.c</FilePath>
+              <FilePath>..\Source\RTC\rtc_menu.c</FilePath>
             </File>
             <File>
               <FileName>streetlight_main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\streetlight_main.c</FilePath>
+              <FilePath>..\Source\Main\streetlight_main.c</FilePath>
             </File>
             <File>
               <FileName>time_window.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\Desktop\ARM_PROGRAMS\Adaptive-Streetlight-Automation_with folders\time_window.c</FilePath>
+              <FilePath>..\Source\Scheduling\time_window.c</FilePath>
             </File>
           </Files>
         </Group>
