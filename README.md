@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-LPC2148-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Language-Embedded_C-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/IDE-Keil_uVision-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Simulation-Proteus-purple?style=for-the-badge" />
+</p>
+
 # Adaptive Streetlight Automation System
 
 An embedded systems project that automates streetlight operation using scheduled time control and ambient light detection.
