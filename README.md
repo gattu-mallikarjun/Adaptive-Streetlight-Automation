@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="./project_banner.png" alt="Adaptive Streetlight Automation System" width="100%">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Platform-LPC2148-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Language-Embedded_C-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/IDE-Keil_uVision-green?style=for-the-badge" />
