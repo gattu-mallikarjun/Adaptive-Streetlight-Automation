@@ -1,0 +1,76 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+SYSTEM FLOWCHART
+
+START
+  |
+  v
+Initialize LPC2148 and Required Peripherals
+  |
+  v
+Initialize LCD, RTC, ADC, GPIO, Keypad and External Interrupt
+  |
+  v
+Read RTC Date and Time
+  |
+  v
+Display RTC Information on LCD
+  |
+  v
+Check External Interrupt (EINT0)
+  |
+  +---- If Interrupt Occurs
+  |          |
+  |          v
+  |      Enter RTC Menu
+  |          |
+  |          v
+  |      Accept Keypad Input
+  |          |
+  |          v
+  |      Process RTC Menu Operation
+  |          |
+  |          v
+  |      Return to Main Operation
+  |
+  v
+Check Configured Time Window
+  |
+  +---- Outside Active Time Window
+  |          |
+  |          v
+  |      Turn LED OFF
+  |          |
+  |          v
+  |      Repeat Main Operation
+  |
+  v
+Inside Active Time Window
+  |
+  v
+Read LDR Sensor Through ADC
+  |
+  v
+Estimate Ambient Light Level
+  |
+  v
+Compare Light Level With LDR Threshold
+  |
+  +---- Light Level > Threshold
+  |          |
+  |          v
+  |      Turn LED OFF
+  |
+  +---- Light Level <= Threshold
+             |
+             v
+         Turn LED ON
+             |
+             v
+       Repeat Main Operation
+
+NOTE:
+- RTC information is continuously displayed on the LCD.
+- The external interrupt provides access to RTC menu operations.
+- The system supports configured time windows that cross midnight.
+- The LED remains OFF outside the active time window.
+- RTC initialization values should not be rewritten on every startup when RTC battery-backup operation is required.

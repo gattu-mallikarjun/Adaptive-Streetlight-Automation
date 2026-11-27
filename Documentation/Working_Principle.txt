@@ -1,0 +1,61 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+WORKING PRINCIPLE
+
+1. SYSTEM INITIALIZATION
+
+- The LPC2148 microcontroller initializes the required peripherals.
+- GPIO pins are configured for the LCD, LED, keypad and other interfaces.
+- The ADC module is initialized for reading the LDR sensor.
+- The RTC module is initialized to maintain date and time information.
+- The external interrupt is configured for accessing the RTC menu.
+- The LCD displays the current RTC information.
+
+2. RTC OPERATION
+
+- The RTC maintains the current date and time.
+- RTC information is continuously displayed on the LCD.
+- The RTC menu can be accessed using the external interrupt.
+- The keypad is used to provide user input during RTC menu operations.
+
+3. TIME WINDOW CHECKING
+
+- The system checks the current RTC time against the configured operating time window.
+- If the current time is within the configured window, the system proceeds to ambient light detection.
+- If the current time is outside the configured window, the streetlight LED remains OFF.
+- The scheduling logic also supports time windows that cross midnight.
+
+4. AMBIENT LIGHT DETECTION
+
+- During the active time window, the LDR sensor detects surrounding light intensity.
+- The analog output from the LDR circuit is read through the LPC2148 ADC.
+- The ADC reading is processed to estimate the ambient light level.
+- The detected light level is compared with the configured LDR threshold.
+
+5. STREETLIGHT CONTROL
+
+- If the detected light level is greater than the configured threshold, the LED is switched OFF.
+- If the detected light level is less than or equal to the configured threshold, the LED is switched ON.
+- The LED therefore responds automatically to the surrounding light conditions during the active time window.
+
+6. CONTINUOUS OPERATION
+
+The system repeatedly performs the following operations:
+
+- Display RTC information.
+- Check the configured time window.
+- Read the LDR sensor when the time window is active.
+- Compare the detected light level with the threshold.
+- Control the streetlight LED accordingly.
+
+7. RTC BATTERY BACKUP
+
+The RTC can retain date and time information during main power interruption when the backup battery supply is properly connected and functioning.
+
+The fixed RTC initialization calls SetRTCTimeInfo() and SetRTCDateInfo() should not execute on every startup during normal battery-backup operation. Otherwise, the previously retained time will be overwritten with the programmed values.
+
+8. SIMULATION AND HARDWARE NOTES
+
+- Proteus simulation uses LPC2138, whereas the actual firmware target is LPC2148.
+- Delay timings should be verified and calibrated on actual hardware because Proteus timing may differ.
+- Verify the keypad number mapping on the actual keypad, as its arrangement may differ from the Proteus simulation.
+- Confirm RTC retention, ADC readings, LCD operation and LED control on the physical LPC2148 development board.

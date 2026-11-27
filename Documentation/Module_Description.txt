@@ -1,0 +1,199 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+FIRMWARE MODULE DESCRIPTION
+
+1. INTRODUCTION
+
+The firmware is developed in Embedded C for the LPC2148 ARM7 microcontroller.
+
+The project is organized into separate modules to improve code readability, maintainability, debugging and peripheral management.
+
+2. ADC MODULE
+
+Files:
+- adc.c
+- adc.h
+- adc_defines.h
+
+Responsibilities:
+- Initializes the ADC peripheral.
+- Selects the required ADC channel.
+- Performs analog-to-digital conversion.
+- Provides digital values obtained from the analog input.
+
+Application:
+The ADC module reads the analog signal from the LDR sensor for ambient light detection.
+
+3. DELAY MODULE
+
+Files:
+- delay.c
+- delay.h
+
+Responsibilities:
+- Provides software delay functions.
+- Supports timing requirements in peripheral operations.
+
+Application:
+Used wherever timing delays are required, including LCD and other peripheral operations.
+
+NOTE:
+Software delay values must be verified and calibrated on actual LPC2148 hardware because Proteus simulation timing may differ from real hardware timing.
+
+4. GPIO AND LED MODULE
+
+Files:
+- led_symbol.c
+- led_symbol.h
+- led_defines.h
+
+Responsibilities:
+- Handles LED-related GPIO operations.
+- Controls the streetlight LED output.
+
+Application:
+The LED represents the streetlight output and is controlled according to the configured schedule and LDR readings.
+
+5. EXTERNAL INTERRUPT MODULE
+
+Files:
+- eint0_irq.c
+- eint.h
+- eint_defines.h
+
+Responsibilities:
+- Configures the external interrupt.
+- Handles the EINT0 interrupt request.
+
+Application:
+The external interrupt is used to access the RTC menu.
+
+6. KEYPAD MODULE
+
+Files:
+- kpm.c
+- kpm.h
+- kpm_defines.h
+
+Responsibilities:
+- Configures and scans the matrix keypad.
+- Detects key presses.
+- Provides key values to the application.
+
+Application:
+The 4x4 matrix keypad is used for user input during RTC menu operations.
+
+NOTE:
+Verify the keypad number mapping on actual hardware. The numeric key arrangement in Proteus may differ from the physical keypad layout.
+
+7. LCD MODULE
+
+Files:
+- lcd.c
+- lcd.h
+- lcd_defines.h
+- lcd_startup.c
+- lcd_startup.h
+
+Responsibilities:
+- Initializes the LCD.
+- Provides functions to display characters and strings.
+- Handles LCD commands and data operations.
+
+Application:
+The 16x2 LCD displays RTC information and system messages.
+
+8. LDR MODULE
+
+Files:
+- ldr.c
+- ldr.h
+- ldr_defines.h
+
+Responsibilities:
+- Processes the LDR sensor readings.
+- Uses ADC values to estimate ambient light intensity.
+- Provides light-level information for streetlight control.
+
+Application:
+The LDR module helps determine whether the surrounding environment is sufficiently bright or dark.
+
+9. PIN CONFIGURATION MODULE
+
+Files:
+- pin_connect_block.c
+- pin_connect_block.h
+- pin_function_defines.h
+
+Responsibilities:
+- Configures the microcontroller pin functions.
+- Selects the required peripheral functions for the GPIO and other interfaces.
+
+Application:
+Configures the microcontroller pins required by the connected peripherals.
+
+10. RTC MODULE
+
+Files:
+- rtc.c
+- rtc.h
+- rtc_defines.h
+- rtc_menu.c
+- rtc_menu.h
+- rtc_menu_defines.h
+
+Responsibilities:
+- Handles RTC initialization and operation.
+- Provides date and time information.
+- Supports RTC menu operations.
+
+Application:
+Maintains the time information used by the scheduling module and displays it on the LCD.
+
+IMPORTANT:
+Fixed RTC initialization calls such as SetRTCTimeInfo() and SetRTCDateInfo() must not execute on every startup when normal RTC battery-backup operation is required. Refer to RTC_Battery_Backup.txt for details.
+
+11. SCHEDULING MODULE
+
+Files:
+- time_window.c
+- time_window.h
+
+Responsibilities:
+- Checks the current RTC time against the configured operating time window.
+- Determines whether the streetlight operating period is active.
+- Supports time windows that cross midnight.
+
+Application:
+Controls when the system should perform ambient light detection and streetlight operation.
+
+12. MAIN APPLICATION MODULE
+
+File:
+- streetlight_main.c
+
+Responsibilities:
+- Contains the main application logic.
+- Coordinates the initialization and operation of different modules.
+- Integrates RTC, scheduling, ADC, LDR, LCD, keypad, interrupt and LED operations.
+
+Application:
+Controls the overall working sequence of the Adaptive Streetlight Automation System.
+
+13. COMMON HEADER FILES
+
+Files:
+- defines.h
+- project_var.h
+- startup.h
+- types.h
+
+Responsibilities:
+- Provide common definitions and declarations.
+- Maintain shared project information.
+- Support consistent usage of common types and definitions across modules.
+
+14. CONCLUSION
+
+The modular firmware structure separates peripheral operations and application logic into individual components.
+
+This organization improves maintainability, simplifies debugging and makes future modifications easier.

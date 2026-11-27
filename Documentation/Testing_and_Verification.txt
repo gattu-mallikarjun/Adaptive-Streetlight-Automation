@@ -1,0 +1,152 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+TESTING AND VERIFICATION
+
+1. INTRODUCTION
+
+This document describes the testing procedures for verifying the functionality of the Adaptive Streetlight Automation System.
+
+Testing is required to verify the RTC operation, time scheduling, LDR sensor readings, LED control, LCD display, keypad input and external interrupt functionality.
+
+2. TESTING ENVIRONMENT
+
+Firmware Development:
+- Microcontroller Target: LPC2148
+- IDE: Keil µVision
+- Programming Language: Embedded C
+
+Simulation:
+- Software: Proteus ISIS
+- Simulation Controller: LPC2138
+- Firmware File: MINI_PROJECT.hex
+
+3. FUNCTIONAL TEST CASES
+
+TEST CASE 1: RTC DISPLAY
+
+Procedure:
+1. Power ON the system.
+2. Observe the LCD.
+3. Check whether the RTC date and time are displayed.
+
+Expected Result:
+The LCD should display the current RTC information.
+
+TEST CASE 2: EXTERNAL INTERRUPT
+
+Procedure:
+1. Allow the system to operate normally.
+2. Press the external interrupt push button.
+3. Observe the RTC menu operation.
+
+Expected Result:
+The external interrupt should provide access to the RTC menu.
+
+TEST CASE 3: KEYPAD OPERATION
+
+Procedure:
+1. Enter the RTC menu using the external interrupt.
+2. Press the required keypad keys.
+3. Observe the response to the key presses.
+
+Expected Result:
+The keypad should provide the correct user input.
+
+Verification Note:
+Check the keypad number mapping carefully. The Proteus keypad layout may differ from the actual physical keypad layout.
+
+TEST CASE 4: TIME WINDOW CHECKING
+
+Procedure:
+1. Configure the required operating time window.
+2. Check the system behavior when the current time is within the configured window.
+3. Check the system behavior when the current time is outside the configured window.
+
+Expected Result:
+The system should perform ambient light detection only during the active time window. Outside the configured window, the LED should remain OFF.
+
+TEST CASE 5: OVERNIGHT TIME WINDOW
+
+Procedure:
+1. Configure a time window that crosses midnight.
+2. Check the system before midnight.
+3. Check the system after midnight.
+4. Observe the scheduling behavior.
+
+Expected Result:
+The scheduling module should correctly identify whether the current time falls within the configured overnight time window.
+
+TEST CASE 6: LDR SENSOR OPERATION
+
+Procedure:
+1. Operate the system within the active time window.
+2. Expose the LDR to different light conditions.
+3. Observe the ADC readings and estimated light level.
+
+Expected Result:
+The system should detect changes in ambient light intensity.
+
+TEST CASE 7: LED CONTROL
+
+Procedure:
+1. Operate the system within the active time window.
+2. Test the LDR under bright and dark conditions.
+3. Observe the LED output.
+
+Expected Result:
+- When the detected light level is greater than the configured threshold, the LED should turn OFF.
+- When the detected light level is less than or equal to the configured threshold, the LED should turn ON.
+
+TEST CASE 8: RTC BATTERY BACKUP
+
+Procedure:
+1. Set the RTC to the required date and time.
+2. Disable the fixed RTC initialization calls from the normal startup sequence.
+3. Keep the RTC backup battery connected.
+4. Switch OFF the main power supply.
+5. Restore the main power supply after a suitable period.
+6. Observe the RTC information.
+
+Expected Result:
+The RTC should retain and continue from the previously stored time, provided the backup supply is functioning correctly.
+
+TEST CASE 9: DELAY CALIBRATION
+
+Procedure:
+1. Observe peripheral timing in Proteus ISIS.
+2. Run the firmware on the actual LPC2148 development board.
+3. Compare the timing behavior.
+4. Adjust software delay values if required.
+
+Expected Result:
+The required timing operations should function correctly on actual hardware.
+
+4. SIMULATION AND HARDWARE VERIFICATION
+
+The Proteus simulation uses LPC2138 as a substitute for LPC2148.
+
+Simulation results alone do not confirm that all functions operate correctly on the physical LPC2148 development board.
+
+The following must be verified separately on actual hardware:
+
+- RTC battery retention
+- Keypad number mapping
+- Software delay accuracy
+- ADC readings
+- LCD operation
+- External interrupt operation
+- LED control
+- Time-window scheduling
+
+5. TESTING STATUS
+
+The test cases listed in this document define the verification procedures and expected results.
+
+Actual test results should be recorded after performing each test.
+
+Do not mark a test as successfully completed until it has been verified on the corresponding simulation or physical hardware.
+
+6. CONCLUSION
+
+Testing and verification help ensure that the Adaptive Streetlight Automation System operates according to its intended functionality.
+
+Both Proteus simulation and actual LPC2148 hardware testing are important for validating the complete system.

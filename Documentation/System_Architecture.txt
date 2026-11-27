@@ -1,0 +1,98 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+SYSTEM ARCHITECTURE
+
+1. INTRODUCTION
+
+The system architecture describes the major hardware and software components of the Adaptive Streetlight Automation System and their interactions.
+
+The LPC2148 ARM7 microcontroller is the target controller responsible for coordinating the different peripherals and executing the application logic.
+
+2. HARDWARE ARCHITECTURE
+
+The major hardware components are:
+
+- LPC2148 ARM7 Microcontroller: Main controller for the system.
+- RTC: Maintains date and time information.
+- 32.768 kHz Crystal: Provides the RTC clock source.
+- LDR Sensor: Detects ambient light intensity.
+- ADC: Converts the analog LDR signal into digital values.
+- LCD 16x2: Displays RTC information and system messages.
+- 4x4 Matrix Keypad: Provides user input.
+- Push Button: Triggers the external interrupt.
+- LED: Represents the streetlight output.
+- Main Crystal: Provides the microcontroller clock source.
+
+3. SOFTWARE ARCHITECTURE
+
+The firmware is divided into the following modules:
+
+- Main Application Module
+- RTC Module
+- Scheduling Module
+- ADC Module
+- LDR Module
+- GPIO and LED Module
+- LCD Module
+- Keypad Module
+- External Interrupt Module
+- Pin Configuration Module
+- Delay Module
+- Common Definitions
+
+4. MODULE INTERACTION
+
+The main application coordinates the operation of the different modules.
+
+RTC MODULE:
+Maintains the current date and time and provides time information to the scheduling logic.
+
+SCHEDULING MODULE:
+Checks whether the current RTC time falls within the configured operating time window.
+
+ADC AND LDR MODULE:
+Reads the analog signal from the LDR and processes the sensor reading to estimate ambient light intensity.
+
+LED MODULE:
+Controls the streetlight output according to the scheduling decision and detected light level.
+
+LCD MODULE:
+Displays RTC information and relevant system messages.
+
+KEYPAD AND EXTERNAL INTERRUPT MODULE:
+The external interrupt provides access to the RTC menu, while the keypad provides user input.
+
+5. SYSTEM CONTROL FLOW
+
+The overall system operation follows this sequence:
+
+1. Initialize the microcontroller and required peripherals.
+2. Initialize and read RTC information.
+3. Display RTC information on the LCD.
+4. Check the configured time window.
+5. If the current time is outside the configured window, keep the LED OFF.
+6. If the current time is within the configured window, read the LDR sensor through the ADC.
+7. Compare the estimated light level with the configured threshold.
+8. Switch the LED ON or OFF according to the light level.
+9. Repeat the operation continuously.
+
+6. CONTROLLER AND SIMULATION ARCHITECTURE
+
+The firmware is developed for the LPC2148 microcontroller.
+
+The Proteus ISIS simulation uses LPC2138 as a substitute because LPC2148 is unavailable in the Proteus component library.
+
+The simulation uses the compiled MINI_PROJECT.hex firmware file.
+
+7. HARDWARE IMPLEMENTATION CONSIDERATIONS
+
+- Verify all peripheral pin connections on the actual LPC2148 development board.
+- Calibrate software delay functions on actual hardware.
+- Verify the physical keypad number mapping.
+- Ensure that RTC battery backup is correctly connected and that fixed RTC initialization calls do not overwrite retained time on every startup.
+- Verify ADC readings and LED control on the actual development board.
+
+8. CONCLUSION
+
+The architecture separates the hardware interfaces, peripheral drivers and application logic into modular components.
+
+This structure makes the Adaptive Streetlight Automation System easier to understand, maintain, test and extend.

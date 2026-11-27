@@ -1,0 +1,90 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+RTC BATTERY BACKUP – LPC2148
+
+1. INTRODUCTION
+
+The LPC2148 microcontroller includes a Real-Time Clock (RTC) peripheral that maintains date and time information.
+
+The RTC has a separate backup power supply input (VBAT), which allows it to retain time information when the main microcontroller supply is interrupted.
+
+2. RTC CLOCK SOURCE
+
+The RTC uses a 32.768 kHz external crystal as its clock source.
+
+This crystal provides the clock required for RTC timekeeping independently of the main processor clock.
+
+3. RTC BACKUP SUPPLY
+
+The VBAT pin provides the backup supply for the RTC domain.
+
+When the main power supply is switched OFF, a properly connected backup battery can continue supplying the RTC domain.
+
+This allows the RTC to retain its date and time information during a main power interruption.
+
+4. RTC INITIALIZATION IN FIRMWARE
+
+The project contains RTC initialization functions:
+
+SetRTCTimeInfo()
+SetRTCDateInfo()
+
+These functions are used to set the required time and date during RTC initialization.
+
+Example initialization values used during development:
+
+SetRTCTimeInfo(11, 11, 57);
+SetRTCDateInfo(11, 11, 2026);
+
+These values are example settings and should be replaced with the required initial date and time when setting up the RTC.
+
+5. IMPORTANT: RTC INITIALIZATION AND BATTERY BACKUP
+
+This is a critical consideration in the project.
+
+If SetRTCTimeInfo() and SetRTCDateInfo() are executed every time the microcontroller starts, the RTC will be reset to the programmed values on every startup.
+
+For example, even if the RTC has retained the correct time using its backup battery, executing these functions again will overwrite the retained time.
+
+Therefore, follow this procedure:
+
+1. Initially configure the RTC with the required date and time.
+2. Verify that the RTC is operating correctly.
+3. After the initial configuration, comment out or remove the fixed SetRTCTimeInfo() and SetRTCDateInfo() calls from the normal startup sequence.
+4. Rebuild the firmware.
+5. Verify that the RTC retains its time during a main power interruption.
+
+Do not execute fixed RTC initialization values on every startup when normal battery-backup operation is required.
+
+6. HARDWARE REQUIREMENTS
+
+For RTC battery-backup operation:
+
+- Connect a suitable backup battery to the VBAT supply as specified in the LPC2148 hardware documentation.
+- Ensure the RTC 32.768 kHz crystal is connected correctly.
+- Verify the backup supply voltage and battery connection.
+- Ensure that the main supply and backup supply are connected according to the LPC2148 hardware requirements.
+
+7. RTC BATTERY BACKUP TESTING PROCEDURE
+
+The following procedure can be used to verify RTC battery-backup operation:
+
+1. Power ON the LPC2148 development board.
+2. Set the RTC to the current date and time.
+3. Confirm that the correct time is displayed on the LCD.
+4. Ensure that the fixed RTC initialization calls are disabled in the normal startup sequence.
+5. Switch OFF the main power supply while keeping the RTC backup battery connected.
+6. Wait for a suitable period.
+7. Restore the main power supply.
+8. Check the RTC time displayed on the LCD.
+
+EXPECTED RESULT:
+
+The RTC should continue from the previously retained time instead of resetting to the fixed initialization values.
+
+NOTE: This test must be performed on the actual LPC2148 hardware. Successful Proteus simulation alone does not establish that battery-backup operation has been verified.
+
+8. CONCLUSION
+
+The RTC battery-backup feature of the LPC2148 helps maintain accurate time information during main power interruptions.
+
+Correct backup battery connections and proper RTC initialization logic are both essential for using this feature effectively in the Adaptive Streetlight Automation System.

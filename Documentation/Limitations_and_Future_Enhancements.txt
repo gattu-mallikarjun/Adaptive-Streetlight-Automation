@@ -1,0 +1,65 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+LIMITATIONS AND FUTURE ENHANCEMENTS
+
+1. PROJECT IMPLEMENTATION AND VALIDATION
+
+The Adaptive Streetlight Automation System has been developed using the LPC2148 ARM7 microcontroller.
+
+The firmware has been developed in Embedded C using Keil µVision and the circuit has also been simulated using Proteus ISIS.
+
+The project has been tested on actual LPC2148 hardware, and the implemented functionality has been verified successfully.
+
+The Proteus simulation uses LPC2138 as a substitute because LPC2148 is unavailable in the Proteus component library.
+
+2. DESIGN CONSIDERATIONS
+
+2.1 CONTROLLER DIFFERENCE IN SIMULATION
+
+The actual firmware target is LPC2148, whereas LPC2138 is used in the Proteus simulation.
+
+The simulation controller and actual hardware controller should be clearly distinguished when interpreting the project files and simulation results.
+
+2.2 DELAY CALIBRATION
+
+Software delay values may behave differently in Proteus ISIS and on actual hardware because of differences in clock configuration and execution timing.
+
+Delay values should be configured and verified according to the actual hardware clock settings.
+
+2.3 KEYPAD MAPPING
+
+The keypad number arrangement in Proteus may differ from the physical keypad layout.
+
+The numeric key mapping, particularly the 7, 8, 9 and 1, 2, 3 positions, should be considered when configuring or modifying the keypad interface.
+
+2.4 RTC BATTERY BACKUP
+
+The LPC2148 RTC supports battery-backed timekeeping through its VBAT supply.
+
+Fixed RTC initialization calls such as SetRTCTimeInfo() and SetRTCDateInfo() should not execute on every startup when normal battery-backup operation is required.
+
+Otherwise, previously retained RTC information may be overwritten by the programmed initialization values.
+
+2.5 HARDWARE CONFIGURATION
+
+Peripheral pin connections, clock configuration and component characteristics should be considered when adapting the design to another development board or hardware configuration.
+
+3. FUTURE ENHANCEMENTS
+
+The existing system can be extended with the following features:
+
+- Wireless monitoring and remote control of streetlights.
+- Centralized monitoring of multiple streetlight units.
+- Automatic fault detection for LEDs and sensors.
+- Energy consumption monitoring and reporting.
+- Data logging for operational analysis and maintenance.
+- Improved ambient light sensing and threshold calibration.
+- Integration with IoT platforms for remote monitoring.
+- Solar-powered streetlight operation.
+
+4. CONCLUSION
+
+The Adaptive Streetlight Automation System demonstrates scheduled streetlight control combined with ambient light detection using an LPC2148 ARM7 microcontroller.
+
+The project has been implemented and tested on actual LPC2148 hardware, with Proteus simulation providing an additional environment for circuit design and functional demonstration.
+
+The proposed future enhancements can further improve system monitoring, automation, energy efficiency and scalability.

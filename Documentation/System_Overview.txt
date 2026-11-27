@@ -1,0 +1,90 @@
+ADAPTIVE STREETLIGHT AUTOMATION SYSTEM
+SYSTEM OVERVIEW
+
+1. INTRODUCTION
+
+The Adaptive Streetlight Automation System is an embedded system designed to automate streetlight operation based on a predefined time schedule and surrounding light intensity.
+
+The system uses the LPC2148 ARM7 microcontroller as its actual firmware target. An LDR sensor detects ambient light intensity, while the Real-Time Clock (RTC) maintains time information required for scheduled operation.
+
+2. OBJECTIVES
+
+- Automate streetlight operation using a predefined time schedule.
+- Detect surrounding light intensity using an LDR sensor.
+- Control the streetlight output according to ambient lighting conditions.
+- Display real-time clock information on an LCD.
+- Provide a keypad-based interface for RTC menu operations.
+- Reduce unnecessary streetlight operation outside the configured time window.
+
+3. HARDWARE AND SOFTWARE REQUIREMENTS
+
+Hardware:
+- LPC2148 ARM7 development board
+- 16x2 LCD
+- LDR sensor
+- Red LED (streetlight output representation)
+- 4x4 matrix keypad
+- Push button for external interrupt
+- Main crystal and RTC crystal
+- RTC backup battery supply
+
+Software:
+- Keil µVision
+- Proteus ISIS
+- Embedded C
+- ARM7 LPC2148 device support
+
+4. MICROCONTROLLER DETAILS
+
+- Actual Firmware Target: LPC2148
+- Proteus Simulation Controller: LPC2138
+
+LPC2138 is used as a substitute in the Proteus simulation because LPC2148 is unavailable in the Proteus component library. The embedded firmware is developed for LPC2148.
+
+5. MAJOR FUNCTIONAL BLOCKS
+
+- RTC Module: Maintains and displays date and time information.
+- Scheduling Module: Determines whether the current time falls within the configured operating window.
+- LDR and ADC Module: Measures ambient light intensity.
+- LED Control Module: Controls the streetlight output.
+- LCD Module: Displays RTC information and system messages.
+- Keypad Module: Accepts user input for RTC menu operations.
+- External Interrupt Module: Provides access to RTC menu operations.
+
+6. SYSTEM OPERATION
+
+- The RTC information is continuously displayed on the LCD.
+- The system checks whether the current time falls within the configured operating window.
+- During the active time window, the LDR sensor is used to monitor ambient light intensity.
+- Based on the detected light intensity, the streetlight LED is switched ON or OFF.
+- Outside the configured time window, the streetlight LED remains OFF.
+- The external interrupt is used to access the RTC menu.
+
+7. RTC BATTERY BACKUP CONSIDERATION
+
+The LPC2148 provides RTC battery-backup support through its backup supply connection.
+
+The RTC initialization functions SetRTCTimeInfo() and SetRTCDateInfo() set the RTC to specific date and time values.
+
+IMPORTANT:
+If these initialization functions are executed every time the controller starts, the previously retained RTC time will be overwritten with the programmed values.
+
+For normal RTC battery-backup operation:
+- Set the RTC initially with the required date and time.
+- After initial setup, comment out or remove the fixed RTC initialization function calls from the normal startup sequence.
+- Ensure that the RTC backup battery and VBAT connection are properly connected and functioning.
+
+This allows the RTC to retain its time during a main power interruption, provided the backup supply is working correctly.
+
+8. SIMULATION AND HARDWARE CONSIDERATIONS
+
+- The keypad number arrangement in Proteus may differ from the actual keypad layout. Verify the numeric key mapping, particularly the 7, 8, 9 and 1, 2, 3 positions.
+- Delay timings observed in Proteus ISIS may differ from actual LPC2148 hardware because of clock configuration and execution timing differences.
+- Verify and calibrate delay values on the actual development board.
+- Verify peripheral connections, LCD operation, ADC readings, keypad functionality and RTC operation on the physical LPC2148 board.
+
+9. PROJECT VALIDATION NOTE
+
+Successful Proteus simulation does not automatically confirm that every function has been validated on the physical LPC2148 development board.
+
+Actual hardware testing is required to verify RTC battery retention, timing accuracy, keypad mapping, peripheral connections and overall system behavior.
